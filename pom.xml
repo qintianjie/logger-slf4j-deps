@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.colorcc</groupId>
 	<artifactId>logger-slf4j-deps</artifactId>
-	<version>0.9.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<description>Simple log4j dependency for the developing project.</description>
 
 	<properties>
-		<slf4j.version>1.6.1</slf4j.version>
+		<slf4j.version>1.6.4</slf4j.version>
 		<log4j.version>1.2.16</log4j.version>
 	</properties>
 
@@ -38,6 +38,25 @@
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.7</version>
+				<configuration>
+					<tag>slf4j</tag>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<scm>
+		<connection>scm:git:https://qintianjie@github.com/qintianjie/logger-slf4j-deps.git/tag</connection>
+		<developerConnection>scm:git:https://qintianjie@github.com/qintianjie/logger-slf4j-deps.git/trunk</developerConnection>
+		<url>http://somerepository.com/view.cvs</url>
+	</scm>
+	
 	<!-- deploy personal source into repository
 			step1. build nexus server
 			step2. add colorcc-release and colorcc-snspshot repository
@@ -54,7 +73,6 @@
 						<password>password</password>
 					</server>
 			step5. mvn clean package deploy This command will deploy the jar into the repository
-	-->
 	<distributionManagement>
 		<repository>
 			<id>colorcc-release</id>
@@ -67,4 +85,5 @@
 			<url>http://localhost:8080/nexus/content/repositories/colorcc-snapshot/</url>
 		</snapshotRepository>
 	</distributionManagement>
+	-->
 </project>
